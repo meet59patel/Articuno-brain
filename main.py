@@ -15,5 +15,11 @@ def check():
     return result
 
 
+@app.route('/', methods=['POST'])
+def myf():
+    data = request.get_json()
+    return str(compare(data['one'], data['two']))
+
+
 if __name__ == '__main__':
     app.run(debug=True)

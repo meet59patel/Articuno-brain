@@ -1,6 +1,7 @@
 import torch
 from sentence_transformers import SentenceTransformer
 from scipy.spatial.distance import cdist
+import numpy as np
 
 model = SentenceTransformer('bert-base-nli-mean-tokens')
 
@@ -8,18 +9,18 @@ model = SentenceTransformer('bert-base-nli-mean-tokens')
 def compare(text1, text2, model=model):
     sent1 = text1.split('. ')
     sent2 = text2.split('. ')
-    og_score = None
+    og_score = np.array([])
     for s in sent1:
         # print(model.encode(s))
-        if og_score:
+        if og_score.any():
             # print(og_score)
             og_score = np.add(model.encode(s), og_score)
         else:
             og_score = model.encode(s)
 
-    new_score = None
+    new_score = np.array([])
     for s in sent2:
-        if new_score:
+        if new_score.any():
             # print(og_score)
             new_score = np.add(model.encode(s), new_score)
         else:
