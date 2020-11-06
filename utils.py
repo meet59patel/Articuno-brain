@@ -1,4 +1,4 @@
-import torch
+# import torch
 from sentence_transformers import SentenceTransformer
 from scipy.spatial.distance import cdist
 import numpy as np
@@ -26,3 +26,4 @@ def compare(text1, text2, model=model):
         else:
             new_score = model.encode(s)
     return 1 - cdist(og_score.reshape(1, og_score.shape[0]), new_score.reshape(1, og_score.shape[0]), "cosine")[0]
+    

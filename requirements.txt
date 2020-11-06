@@ -15,11 +15,7 @@ MarkupSafe==1.1.1
 nltk==3.5
 numpy==1.19.4
 packaging==20.4
-pandas==1.1.4
-protobuf==3.13.0
 pyparsing==2.4.7
-python-dateutil==2.8.1
-pytz==2020.4
 regex==2020.10.28
 requests==2.24.0
 sacremoses==0.0.43
