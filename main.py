@@ -18,7 +18,7 @@ def check():
 @app.route('/', methods=['POST'])
 def myf():
     data = request.get_json()
-    return str(compare(data['one'], data['two']))
+    return str(compare(data['one'], data['two'])[0])
 
 
 if __name__ == '__main__':
